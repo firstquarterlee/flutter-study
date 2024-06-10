@@ -1,5 +1,22 @@
 import 'package:flutter/material.dart';
 
+enum Status {
+  approved, //승인
+  pending,  //대기
+  rejected, //거절
+}
+
+//signature -> 리턴타입과 파라미터 형태를 시그니처라함
+typedef Operation = int Function(int x, int y, int z);
+//더하기
+int add(int x, int y, int z) => x + y + z;
+//빼기
+int subtract(int x, int y, int z) => x - y - z;
+//계산
+int calculate(int x, int y, int z, Operation operation) {
+  return operation(x, y, z);
+}
+
 void main() {
   ///정수
   ///Integer
@@ -180,57 +197,212 @@ void main() {
   // print(isHarryPotter); //벨류 true로 바뀜
   // isHarryPotter.remove('Harry Potter'); //키, 값 지우는 방법
   // print(isHarryPotter);
+  // print(isHarryPotter.keys); //키값만 가져오는 것
+  // print(isHarryPotter.values); //벨류값만 가져오는 것
+  ///======================
+  ///Set
+  // final Set<String> names = {
+  //   'Coding',
+  //   'Flutter',
+  //   'Black Pink',
+  //   'Flutter', //Flutter가 중복인데 프린트하면 중복처리를 알아서 해줌 set은ㅋ
+  // };
+  // print(names);
+  // names.add('Jenny');
+  // print(names);
+  // print(names.contains('Flutter'));//어떤 값이 이 셋에 존재하는지 안하는지 알 수 있다. //true
+  ///======================
+  ///if문
+  // int number = 3;
+  // if (number % 2 == 0) {
+  //   //넘버를 2로 나눠서 나머지가 0이면 짝수!!! 당연히 짝수
+  //   print('값이 짝수입니다.');
+  // } else {
+  //   print('값이 홀수입니다.');
+  // }
+  ///else if문
+  //  int number = 3;
+  // if (number % 3 == 0) {
+  //   print('나머지가 0입니다.');
+  // } else if (number % 3 == 1) {
+  //   print('나머지가 1입니다.');
+  // } else {
+  //   print('나머지가 2입니다.');
+  // }
+  ///swich문
+  // int number = 3;
+  // switch(number % 3) {
+  //   case 0:
+  //     print('나머지가 0입니다.');
+  //     break; //switch는 break 꼭 있어야함
+  //   case 1:
+  //     print('나머지가 1입니다.');
+  //     break;
+  //   default: //default가 if문에서의 else와 똑같다.
+  //     print('나머지가 2입니다.');
+  //     break;
+  // }
+  ///loop문(for)
+  // for (int i = 0; i < 10; i++){
+  //     //변수선언    //언제까지 조건설정해주고    //마지막 룹이 실행될때마다 어떤 액션 할지
+  //   print(i);
+  // }
+  // int total = 0;
+  // List<int> numbers = [1, 2, 3, 4, 5, 6];
+  // for (int i = 0; i < numbers.length; i++) {
+  //   total += numbers[i];
+  //   print(total);
+  // }
+  ///for in loop문
+  // total = 0;
+  // for (int number in numbers) { //in 옆에 numbers의 리스트를 int number여기에 하나씩 넣어준다.
+  //   total += number;
+  //   print(total);
+  //   //print(number);
+  //   //그래서 number에 리스트에있는것들을 하나씩 받아올수있다.
+  // }
+  ///while loop문
+  // int total = 0;
+  // while(total < 10) {
+  //   total += 1;
+  // }
+  // print(total);
+  //
+  // //do while문 -> 거의 안쓴다.
+  // total = 0;
+  // do {
+  //   total += 1;
+  // } while(total < 10);
+  // print(total);
 
+  //while문에서 쓰기 좋은 break문
+  // int total = 0;
+  // while(total < 10) {
+  //   total += 1;
+  //
+  //   if(total == 5) {
+  //     break;
+  //   }
+  // }
+  // print(total);
 
+  // 이렇게 쓸 수도있음
+  // for(int i = 0; i < 10; i++) {
+  //   total += 1;
+  //   if(total == 5) {
+  //     break;
+  //   }
+  //   print(total);
+  // }
+  ///continue
+  // for (int i = 0; i < 10; i++) {
+  //   if (i == 5) { //i가 5되면 현재룹 종료, 건너띄고 다시 루프 돈다.
+  //     continue;
+  //   }
+  //   print(i);
+  // }
+  ///======================
+  ///enum -> 메인 함수 위에 선언해줬음!
+  ///이넘을 쓰면 몇가지 타입만 있을때 그 타입만 사용할 수 있게 강제할 수 있다!!!
+  // Status status = Status.pending;
+  //
+  // if(status == Status.approved) {
+  //   print('승인입니다.');
+  // } else if (status == Status.pending) {
+  //   print('대기입니다.');
+  // } else {
+  //   print('거절입니다.');
+  // }
+  ///======================
+  ///함수
+  ///반복되는 로직, 반복되는 코드를 우리가 한번만 작성하고서 재활용할수있게 해준다.
+  //세계의 숫자 (x, y, z)를 더하고 짝수인지 홀수인지 알려주는 함수
+  // addNumbers(int x, int y, int z) {
+  //   int sum = x + y + z;
+  //   print('x : $x');
+  //   print('y : $y');
+  //   print('z : $z');
+  //
+  //   if (sum % 2 == 0) {
+  //     print('짝수입니다.');
+  //   } else {
+  //     print('홀수입니다.');
+  //   }
+  // }
+  //
+  // addNumbers(10, 20, 30);
+  // addNumbers(20, 30, 10);
 
+  ///parameter - 매개변수
+  ///positional parameter - 순서가 중요한 파라미터
 
+  ///optional parameter - 있어도 되고 없어도 되는 파라미터
+  //   addNumbers(int x, [int y = 20, int z = 30]) { //근데 아규먼트에 값을 넣으면 기본값이 무시가된다!!!
+  //     int sum = x + y + z;
+  //     print('x : $x');
+  //     print('y : $y');
+  //     print('z : $z');
+  //
+  //     if (sum % 2 == 0) {
+  //       print('짝수입니다.');
+  //     } else {
+  //       print('홀수입니다.');
+  //     }
+  //   }
+  //
+  //   addNumbers(10, 3, 3);
+  //   addNumbers(20, 2, 2);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  /// named parameter - 이름이 있는 파라미터 (순서가 중요하지 않다.)
+  //    addNumbers({
+//      required int x, //네임드파라미터는 required라고 적어줘야된다. required 뜻 -> 필요하다.
+//      required int y,
+//      int z = 30, //네임드파라미터에서는 옵셔널파라미터를 할 수 있을까? 있다. //네임드파라미터는 required안적으면 필요가 없다라고 인식하는게 디폴트다.
+//    }) {
+//         int sum = x + y + z;
+//         print('x : $x');
+//         print('y : $y');
+//         print('z : $z');
+//
+//         if (sum % 2 == 0) {
+//           print('짝수입니다.');
+//         } else {
+//           print('홀수입니다.');
+//         }
+//       }
+//
+//       addNumbers(y: 20, x: 10, z: 30);
+//       addNumbers(x: 10, y: 40);
+// }
+  ///======================
+  ///void란? void 뜻 공허, 아무것도없다라는 뜻!
+  //얘가 무슨 말이냐면 return 타입이라는건데ㅋ
+  //void로 하면 아무것도 반환 받을 수 없다 반환하려면 에러가 난다.
+  //그래서 int addNUmbers(){}하고 함수 안에다가 return sum; 하면 값을 반환할 수 있다.
+  //👆여기다 지금까지 배웠던 타입들 다 적을 수 있따!!
+  //그리고 옵셔널파라미터, 네임드파라미터 같이 사용할 수 도 있다!
+  ///======================
+  ///arrow function -> 화살표 함수
+  // int addNumbers(int x,  {
+  //   required int y,
+  //   int z = 30,
+  // }) => x + y + z;
+  //     //arrow를 적으면 바로 다음에 오는 값이 반환되는 값이다.
+  ///======================
+  ///TypeDef? ,,,,,맨위에 선언했음
+  ///함수랑 비슷한데 바디가 없다.
+  // Operation operation = add;
+  // int result = operation(10, 20, 30);
+  // print(result);
+  //
+  // operation = subtract;
+  //
+  // int result2 = operation(10, 20, 30);
+  // print(result2);
+  //
+  // int result3 = calculate(30, 40, 50, add);
+  // print(result3);
+  //
+  // int result4 = calculate(40, 50, 60, subtract);
+  // print(result4);
 }
