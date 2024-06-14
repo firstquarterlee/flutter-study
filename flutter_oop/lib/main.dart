@@ -239,3 +239,105 @@ import 'package:flutter/material.dart';
 //     return super.calculate() * 2;
 //   }
 // }
+///static 😮‍💨
+// void main() {
+//   Employee seulgi = Employee('슬기');
+//   Employee chorong = Employee('초롱');
+//   Employee jenny = Employee('제니');
+//
+//   seulgi.name = '코딩';
+//   seulgi.printNameAndBuilding();
+//   chorong.printNameAndBuilding();
+//
+//   Employee.building = '오투타워';
+//
+//   seulgi.printNameAndBuilding();
+//   chorong.printNameAndBuilding();
+//   jenny.printNameAndBuilding();
+//
+//   Employee.printBuilding();
+//
+// }
+//
+// class Employee {
+//   //static은 instance에 귀속되지 않고 class에 귀속된다.
+//   //알바생이 일하고있는 건물
+//   static String? building;
+//   //알바생 이름
+//   String name;
+//
+//   Employee(this.name,);
+//
+//   void printNameAndBuilding() {
+//     print('제 이름은 $name입니다. $building 건물에서 근무하고 있습니다.');
+//   }
+//
+//   static void printBuilding() {
+//     print('저희는 $building 건물에서 근무중입니다.');
+//   }
+// }
+///Interface 😮‍💨
+// void main() {
+//   BoyGroup bts = BoyGroup('BTS');
+//   GirlGroup redVelvet = GirlGroup('레드벨벳');
+//
+//   bts.sayName();
+//   redVelvet.sayName();
+//
+//   print(bts is IdolInterface);
+//
+// }
+//
+// //interface
+// abstract class IdolInterface { //abstract가 써져 있으면은 얘는 우리가 Instance로 만들 때 사용을 하지마라 라는 의미!
+//   String name;
+//
+//   IdolInterface(this.name);
+//
+//   void sayName() {}
+// }
+//
+// class BoyGroup implements IdolInterface {
+//   String name;
+//
+//   BoyGroup(this.name);
+//
+//   void sayName() {
+//     print('제 이름은 $name입니다.');
+//   }
+// }
+//
+// class GirlGroup implements IdolInterface {
+//   String name;
+//
+//   GirlGroup(this.name);
+//
+//   void sayName() {
+//     print('제 이름은 $name입니다.');
+//   }
+// }
+// //결론 -> 상속의 경우에는 우리가 속성과 기능들을 물려주기 위해서 사용한다고 생각을 한다면
+// //인터페이스 같은 경우에는 어떤 특수한 구조를 이렇게 강제하는 게 인터페이스라고 생각을 하면 된다.
+//
+// //abstract 추상적인
+///generic -> 타입을 외부에서 받을때 사용 😮‍💨
+// void main() {
+//   Lecture<String> lecture1 = Lecture('123', 'lecture1');
+//
+//   lecture1.printIdType();
+//
+//   Lecture<int> lecture2 = Lecture(123, 'lecture2');
+//
+//   lecture2.printIdType();
+// }
+//
+// class Lecture<T> {
+//   final T id;
+//   final String name;
+//
+//   Lecture(this.id, this.name);
+//
+//   void printIdType() {
+//     print(id.runtimeType);
+//   }
+// }
