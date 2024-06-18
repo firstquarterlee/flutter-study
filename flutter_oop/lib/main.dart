@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 //인스턴스는 생성할때마다 프로그램은 다르다고 인식한다. 하지만 const라고 적으면 같다고 인식한다?
-//인스턴스는 생성할때마다 프로그램은 다르다고 인식한다. 하지만 const라고 적으면 같다고 인식한다?
 //게터세터를 왜 사용하나? 함수써도되는데...? 함수는 로직을 처리할때 사용하고, 게터세터는 간단한 값을 바꿀때 사용하는 차이가 있다.
 
 ///Idol class 만들기
