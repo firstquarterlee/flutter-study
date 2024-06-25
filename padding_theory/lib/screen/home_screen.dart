@@ -11,9 +11,11 @@ class HomeScreen extends StatelessWidget {
         child: Container(
           color: Colors.red,
           child: Padding(
-            padding: EdgeInsets.symmetric(//시멘트릭 뜻 대칭
-              horizontal: 32.0,
-              vertical: 64.0,
+            padding: EdgeInsets.only(//4개의 면에 직접 커스터마이징해줄수있음 입력안하면 0임
+              top: 32.0, //위
+              left: 64.0, //왼
+              right: 16.0, //오
+              bottom: 128.0, //아래
             ),
             child: Container(
               color: Colors.blue,
