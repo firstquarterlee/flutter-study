@@ -11,7 +11,10 @@ class HomeScreen extends StatelessWidget {
         child: Container(
           color: Colors.red,
           child: Padding(
-            padding: EdgeInsets.all(8.0),//차일드컨테이너 바깥에 모두 8픽셀만큼 칠하라고 표시해둔거다.
+            padding: EdgeInsets.symmetric(//시멘트릭 뜻 대칭
+              horizontal: 32.0,
+              vertical: 64.0,
+            ),
             child: Container(
               color: Colors.blue,
               width: 50.0,
