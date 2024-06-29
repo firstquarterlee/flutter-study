@@ -29,13 +29,22 @@ class _SettingScreenState extends State<SettingScreen> {
               _Number(
                 maxNumber: maxNumber,
               ),
-              _Slider(),
+              _Slider(
+                value: maxNumber,
+                onChanged: onSliderChanged,
+              ),
               _Button(),
             ],
           ),
         ),
       ),
     );
+  }
+
+  onSliderChanged(double value) {
+    setState(() {
+      maxNumber = value;
+    });
   }
 }
 
@@ -59,29 +68,24 @@ class _Number extends StatelessWidget {
   }
 }
 
-class _Slider extends StatefulWidget {
+class _Slider extends StatelessWidget {
+  final double value;
+  final ValueChanged<double> onChanged;
 
-
-  const _Slider({super.key});
-
-  @override
-  State<_Slider> createState() => _SliderState();
-}
-
-class _SliderState extends State<_Slider> {
-  double maxNumber = 1000;
+  const _Slider({
+    required this.value,
+    required this.onChanged,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Slider(
-      value: maxNumber, //슬라이더 값(0~1까지)
+      value: value, //슬라이더 값(0~1까지)
       min: 1000,
       max: 100000,
-      onChanged: (double value) {
-        setState(() {
-          this.maxNumber = value; //this.maxNumber 72번째 줄 값이고 //뒤에 value는 double value 이 벨류다.
-        });
-      },
+      activeColor: redColor,
+      onChanged: onChanged,
     );
   }
 }
