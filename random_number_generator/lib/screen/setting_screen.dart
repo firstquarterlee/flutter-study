@@ -33,12 +33,21 @@ class _SettingScreenState extends State<SettingScreen> {
                 value: maxNumber,
                 onChanged: onSliderChanged,
               ),
-              _Button(),
+              _Button(
+                onPressed: onSavePressed,
+              ),
             ],
           ),
         ),
       ),
     );
+  }
+
+  onSavePressed() {
+      Navigator.of(context).pop(
+        maxNumber.toInt(),
+      );
+
   }
 
   onSliderChanged(double value) {
@@ -91,7 +100,12 @@ class _Slider extends StatelessWidget {
 }
 
 class _Button extends StatelessWidget {
-  const _Button({super.key});
+  final VoidCallback onPressed;
+
+  const _Button({
+    required this.onPressed,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -99,9 +113,7 @@ class _Button extends StatelessWidget {
       style: ElevatedButton.styleFrom(
           backgroundColor: redColor, foregroundColor: Colors.white //글씨흰색
           ),
-      onPressed: () {
-        Navigator.of(context).pop(); //팝또는 푸쉬 메서드 사용 가능
-      },
+      onPressed: onPressed,
       child: Text('저장!'),
     );
   }
