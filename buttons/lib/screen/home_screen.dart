@@ -45,6 +45,12 @@ class HomeScreen extends StatelessWidget {
             ),
             OutlinedButton( //d있어야됨
               onPressed: (){},
+              style: OutlinedButton.styleFrom(
+                backgroundColor: Colors.blue,
+                foregroundColor: Colors.red,
+                shadowColor: Colors.black,
+                elevation: 10.0,
+              ),
               child: Text('OutlineButton'),
             ),
             TextButton(
